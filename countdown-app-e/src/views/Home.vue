@@ -16,4 +16,4 @@ export default {
 };
 </script>
 
-DateInput
+<style lang="scss" scoped></style>

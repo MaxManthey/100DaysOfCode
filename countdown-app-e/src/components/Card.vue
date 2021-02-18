@@ -7,7 +7,7 @@
         </span>
         <span v-else-if="inputType === 'hour'">
           Please select amount of hours
-          <dropdown />
+          <user-input />
         </span>
         <span v-else-if="inputType === 'minute'">
           Please select amount of minutes
@@ -16,8 +16,8 @@
           Please select amount of seconds
         </span>
         <span v-else>ERROR {{ inputType }}</span>
-        <div>
-          <span class="btn">
+        <div class="btn-wrapper">
+          <span class="back-btn">
             <b-button
               v-if="getSteps() > 0"
               type="is-danger"
@@ -30,7 +30,7 @@
               Back
             </b-button>
           </span>
-          <span class="btn">
+          <span class="next-btn">
             <b-button
               v-if="getSteps() < 3"
               type="is-success"
@@ -51,9 +51,10 @@
 <script>
 import { mapState } from "vuex";
 import Dropdown from "./Dropdown.vue";
+import UserInput from "./UserInput.vue";
 
 export default {
-  components: { Dropdown },
+  components: { Dropdown, UserInput },
   props: {
     inputType: String,
   },
@@ -83,12 +84,18 @@ export default {
 <style lang="scss" scoped>
 .card {
   width: 50%;
-  height: 50%;
   margin: 0 auto;
   overflow: hidden;
 }
-.btn {
-  padding: 10%;
-  margin-top: 100%;
+.btn-wrapper {
+  margin-top: 5%;
+}
+.back-btn {
+  padding-left: 0%;
+  padding-right: 10%;
+}
+.next-btn {
+  padding-left: 10%;
+  padding-right: 0%;
 }
 </style>

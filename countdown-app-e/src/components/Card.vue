@@ -3,17 +3,20 @@
     <div class="card-content">
       <div class="content">
         <span v-if="inputType === 'day'">
-          Please select amount of days
+          Please input amount of days
+          <user-input />
         </span>
         <span v-else-if="inputType === 'hour'">
-          Please select amount of hours
+          Please input amount of hours
           <user-input />
         </span>
         <span v-else-if="inputType === 'minute'">
-          Please select amount of minutes
+          Please input amount of minutes
+          <user-input />
         </span>
         <span v-else-if="inputType === 'second'">
-          Please select amount of seconds
+          Please input amount of seconds
+          <user-input />
         </span>
         <span v-else>ERROR {{ inputType }}</span>
         <div class="btn-wrapper">
@@ -50,11 +53,10 @@
 
 <script>
 import { mapState } from "vuex";
-import Dropdown from "./Dropdown.vue";
 import UserInput from "./UserInput.vue";
 
 export default {
-  components: { Dropdown, UserInput },
+  components: { UserInput },
   props: {
     inputType: String,
   },

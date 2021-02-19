@@ -19,16 +19,16 @@ export default new Vuex.Store({
       state.steps -= 1
     },
     setDays(state, input) {
-      state.days = input
+      state.days = parseInt(input)
     }, 
     setHours(state, input) {
-      state.hours = input
+      state.hours = parseInt(input)
     },
     setMinutes(state, input) {
-      state.minutes = input
+      state.minutes = parseInt(input)
     },
     setSeconds(state, input) {
-      state.seconds = input
+      state.seconds = parseInt(input)
     }
   },
   actions: {
@@ -40,17 +40,17 @@ export default new Vuex.Store({
     },
     setChosenTimeState(context, timeState, input) {
       if(timeState === "days") {
-        console.log("moin")
-        context.commit('setDays')
+        console.log("moin setChosenTimeState d", input)
+        context.commit('setDays', input)
       } else if(timeState === "hours") {
-        console.log("moin")
-        context.commit('setHours')
+        console.log("moin setChosenTimeState h")
+        context.commit('setHours', input)
       } else if (timeState === "minutes") {
-        console.log("moin")
-        context.commit('setMinutes')
+        console.log("moin setChosenTimeState min")
+        context.commit('setMinutes', input)
       } else {
-        console.log("moin")
-        context.commit('setSeconds')
+        console.log("moin setChosenTimeState sec")
+        context.commit('setSeconds', input)
       }
     }
   },

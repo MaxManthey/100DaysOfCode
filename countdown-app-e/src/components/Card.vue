@@ -4,7 +4,7 @@
       <div class="content">
         <span v-if="inputType === 'day'">
           Please input amount of days
-          <user-input />
+          <user-input inputType="days" />
         </span>
         <span v-else-if="inputType === 'hour'">
           Please input amount of hours
@@ -64,16 +64,11 @@ export default {
     ...mapState(["steps"]),
   },
   methods: {
-    getMinutesSeconds() {
-      return Array.from(Array(60).keys());
-    },
-    getHours() {
-      return Array.from(Array(24).keys());
-    },
     getSteps() {
       return this.$store.state.steps;
     },
     increaseStep() {
+      console.log(this.inputType);
       this.$store.dispatch("incrementSteps");
     },
     decreaseStep() {

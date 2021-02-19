@@ -26,7 +26,6 @@ export default {
 // DevPlan:
 // ✅ make card component prop
 // - add cards for day, hour, minute, second (all dropdown except for days)
-//      - fix dropdown bug
 // - save input on buttonclick in store
 // ✅ make buttons on bottom to track state (not in card)
 //     ✅ when next button is clicked go to next state (show cards accordingly)

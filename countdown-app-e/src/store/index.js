@@ -52,6 +52,9 @@ export default new Vuex.Store({
         console.log("moin setChosenTimeState sec")
         context.commit('setSeconds', input)
       }
+    },
+    currentDate() {
+      return new Date();
     }
   },
   modules: {

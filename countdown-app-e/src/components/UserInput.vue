@@ -20,15 +20,14 @@ export default {
     ...mapState(["days", "hours", "minutes", "seconds"]),
     updateStore() {
       console.log("upd", this.inputType);
-      console.log("aloha", this.userInput);
-      this.$store.dispatch(
-        "setChosenTimeState",
-        this.inputType,
-        this.userInput
-      );
-      console.log(this.$store.state.days);
-      console.log(this.$store.state.hours);
-      console.log(this.$store.state.seconds);
+      console.log("aloha", this.userInput, " type ", typeof this.userInput);
+      this.$store.dispatch("setChosenTimeState", {
+        timeState: this.inputType,
+        input: parseInt(this.userInput),
+      });
+      // console.log(this.$store.state.days);
+      // console.log(this.$store.state.hours);
+      // console.log(this.$store.state.seconds);
     },
   },
 };

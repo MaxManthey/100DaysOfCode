@@ -25,13 +25,14 @@ export default {
 };
 // DevPlan:
 // ✅ make card component prop
-// - add cards for day, hour, minute, second (all dropdown except for days)
-// - save input on buttonclick in store
+// ✅ add cards for day, hour, minute, second (all dropdown except for days)
+// ✅ save input on buttonclick in store
 // ✅ make buttons on bottom to track state (not in card)
 //     ✅ when next button is clicked go to next state (show cards accordingly)
 //     ✅ when next button is clicked after seconds go to new window that shows countdown
 //     ✅ have back button when state > days
-// - when input finished go to page that shows countdown
+// - when input finished go to page that shows countdown use moment.js
+// - set default value for everything on 0
 </script>
 
 <style lang="scss" scoped></style>

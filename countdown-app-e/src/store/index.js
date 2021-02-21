@@ -19,16 +19,17 @@ export default new Vuex.Store({
       state.steps -= 1
     },
     setDays(state, input) {
-      state.days = parseInt(input)
+      console.log("dayzzz ", input , " type: ", typeof input)
+      state.days = input
     }, 
     setHours(state, input) {
-      state.hours = parseInt(input)
+      state.hours = input
     },
     setMinutes(state, input) {
-      state.minutes = parseInt(input)
+      state.minutes = input
     },
     setSeconds(state, input) {
-      state.seconds = parseInt(input)
+      state.seconds = input
     }
   },
   actions: {
@@ -38,20 +39,24 @@ export default new Vuex.Store({
     decrementSteps(context) {
       context.commit('decrementSteps')
     },
-    setChosenTimeState(context, timeState, input) {
-      if(timeState === "days") {
-        console.log("moin setChosenTimeState d", input)
-        context.commit('setDays', input)
-      } else if(timeState === "hours") {
-        console.log("moin setChosenTimeState h")
-        context.commit('setHours', input)
-      } else if (timeState === "minutes") {
-        console.log("moin setChosenTimeState min")
-        context.commit('setMinutes', input)
-      } else {
-        console.log("moin setChosenTimeState sec")
-        context.commit('setSeconds', input)
-      }
+    setChosenTimeState(context, {timeState, input}) {
+      console.log('input in action: ', input)
+      console.log('timeState in action: ', timeState)
+      if(input !== undefined) {
+        if(timeState === "days") {
+          console.log("moin setChosenTimeState d ", input)
+          context.commit('setDays', input)
+        } else if(timeState === "hours") {
+          console.log("moin setChosenTimeState h ", input)
+          context.commit('setHours', input)
+        } else if (timeState === "minutes") {
+          console.log("moin setChosenTimeState min ", input)
+          context.commit('setMinutes', input)
+        } else {
+          console.log("moin setChosenTimeState sec ", input)
+          context.commit('setSeconds', input)
+        }
+      }  
     },
     currentDate() {
       return new Date();

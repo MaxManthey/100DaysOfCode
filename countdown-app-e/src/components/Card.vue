@@ -8,15 +8,15 @@
         </span>
         <span v-else-if="inputType === 'hour'">
           Please input amount of hours
-          <user-input />
+          <user-input inputType="hours" />
         </span>
         <span v-else-if="inputType === 'minute'">
           Please input amount of minutes
-          <user-input />
+          <user-input inputType="minutes" />
         </span>
         <span v-else-if="inputType === 'second'">
           Please input amount of seconds
-          <user-input />
+          <user-input inputType="seconds" />
         </span>
         <span v-else>ERROR {{ inputType }}</span>
         <div class="btn-wrapper">
@@ -42,7 +42,7 @@
               Next
             </b-button>
             <b-button v-else type="is-success">
-              <router-link to="/about">About</router-link>
+              <router-link to="/result">Finish</router-link>
             </b-button>
           </span>
         </div>

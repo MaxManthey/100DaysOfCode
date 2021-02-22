@@ -7,9 +7,10 @@
     </div>
     <div class="card-content">
       <div class="content">
-        <div :class="currentDate()">
-          {{ currentTime }}
-        </div>
+        <div :class="currentDate()">Current time: {{ currentTime }}</div>
+        <b-button @click="futureDate()">test</b-button>
+        <div>Your time: {{ futureTime }}</div>
+        <div>Countdown: {{ timer }}</div>
       </div>
     </div>
   </div>
@@ -17,12 +18,13 @@
 
 <script>
 import { mapState } from "vuex";
-
+import moment from "moment";
 export default {
   data() {
     return {
       currentTime: "",
       futureTime: "",
+      timer: "",
     };
   },
   created() {
@@ -33,22 +35,38 @@ export default {
   },
   methods: {
     currentDate() {
-      console.log();
-      const today = new Date();
-      const date =
-        today.getDate() +
-        "-" +
-        (today.getMonth() + 1) +
-        "-" +
-        today.getFullYear();
-      const time =
-        today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-      const dateTime = time + " " + date;
-      this.currentTime = dateTime;
+      this.currentTime = moment().format("HH:mm:ss DD-MM-YYYY");
     },
     futureDate() {
-      let addedDay = this.currentDate().getDate() + this.$store.state.days;
-      let addedMinute = this.currentDate().getHours();
+      this.futureTime = moment()
+        .add(this.$store.state.days, "d")
+        .add(this.$store.state.hours, "h")
+        .add(this.$store.state.minutes, "m")
+        .add(this.$store.state.seconds, "s")
+        .format("HH:mm:ss DD-MM-YYYY");
+      this.countdownTime();
+    },
+    countdownTime() {
+      let future = moment()
+        .add(this.$store.state.days, "d")
+        .add(this.$store.state.hours, "h")
+        .add(this.$store.state.minutes, "m")
+        .add(this.$store.state.seconds, "s");
+      let now = moment();
+      console.log(now.year());
+      console.log(now.month() + 1);
+      console.log(now.day());
+      console.log(now.hour());
+      console.log(now.minute());
+      console.log(now.second());
+      this.timer = future
+        .subtract(now.year(), "year")
+        .subtract(now.month(), "months")
+        .subtract(now.day(), "d")
+        .subtract(now.hour(), "h")
+        .subtract(now.minute(), "m")
+        .subtract(now.second(), "s")
+        .format("HH:mm:ss DD-MM-YYYY");
     },
   },
 };

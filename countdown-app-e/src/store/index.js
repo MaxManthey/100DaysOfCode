@@ -6,7 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     steps: 0,
-    days: 0,
+    days: 1,
     hours: 0,
     minutes: 0,
     seconds: 0

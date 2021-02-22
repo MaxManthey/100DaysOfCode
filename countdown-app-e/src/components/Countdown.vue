@@ -8,9 +8,8 @@
     <div class="card-content">
       <div class="content">
         <div :class="currentDate()">Current time: {{ currentTime }}</div>
-        <b-button @click="futureDate()">test</b-button>
-        <div>Your time: {{ futureTime }}</div>
-        <div>Countdown: {{ timer }}</div>
+        <div :class="countdownTime()">Countdown: {{ timer }}</div>
+        <div class="futureDate()">Your set time: {{ futureTime }}</div>
       </div>
     </div>
   </div>
@@ -23,17 +22,25 @@ export default {
   data() {
     return {
       currentTime: "",
-      futureTime: "",
+      futureTime: moment(),
       timer: "",
     };
   },
   created() {
-    setInterval(this.currentDate, 1000);
+    this.futureDate();
+    setInterval(function run() {
+      this.currentDate;
+      this.countdownTime;
+      this.test;
+    }, 1000);
   },
   computed: {
     ...mapState(["days", "hours", "minutes", "seconds"]),
   },
   methods: {
+    decrementSeconds() {
+      this.$store.dispatch("decrementSeconds");
+    },
     currentDate() {
       this.currentTime = moment().format("HH:mm:ss DD-MM-YYYY");
     },
@@ -53,16 +60,11 @@ export default {
         .add(this.$store.state.minutes, "m")
         .add(this.$store.state.seconds, "s");
       let now = moment();
-      console.log(now.year());
-      console.log(now.month() + 1);
-      console.log(now.day());
-      console.log(now.hour());
-      console.log(now.minute());
-      console.log(now.second());
+
       this.timer = future
         .subtract(now.year(), "year")
         .subtract(now.month(), "months")
-        .subtract(now.day(), "d")
+        .subtract(now.date(), "d")
         .subtract(now.hour(), "h")
         .subtract(now.minute(), "m")
         .subtract(now.second(), "s")

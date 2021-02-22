@@ -31,8 +31,8 @@ export default {
 //     ✅ when next button is clicked go to next state (show cards accordingly)
 //     ✅ when next button is clicked after seconds go to new window that shows countdown
 //     ✅ have back button when state > days
-// - when input finished go to page that shows countdown use moment.js
-// - set default value for everything on 0
+// ✅ when input finished go to page that shows countdown use moment.js
+// ✅ set default value for everything on 0
 </script>
 
 <style lang="scss" scoped></style>

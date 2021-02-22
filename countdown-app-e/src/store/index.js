@@ -18,6 +18,9 @@ export default new Vuex.Store({
     decrementSteps(state) {
       state.steps -= 1
     },
+    decrementSeconds(state) {
+      state.seconds -= 1;
+    },
     setDays(state, input) {
       console.log("dayzzz ", input , " type: ", typeof input)
       state.days = input
@@ -38,6 +41,9 @@ export default new Vuex.Store({
     },
     decrementSteps(context) {
       context.commit('decrementSteps')
+    },
+    decrementSeconds(context) {
+      context.commit('decrementSeconds')
     },
     setChosenTimeState(context, {timeState, input}) {
       console.log('input in action: ', input)

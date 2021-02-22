@@ -25,9 +25,6 @@ export default {
         timeState: this.inputType,
         input: parseInt(this.userInput),
       });
-      // console.log(this.$store.state.days);
-      // console.log(this.$store.state.hours);
-      // console.log(this.$store.state.seconds);
     },
   },
 };

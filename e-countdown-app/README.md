@@ -1,5 +1,7 @@
 # countdown-app-e
 
+App to set accountdown using vue and buefy
+
 ## Project setup
 ```
 npm install

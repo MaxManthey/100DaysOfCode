@@ -1,5 +1,7 @@
 # e-calculator
 
+macOS calculator clone for the browser in vue.js
+
 ## Project setup
 ```
 npm install

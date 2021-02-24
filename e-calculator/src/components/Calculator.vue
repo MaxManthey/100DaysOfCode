@@ -4,7 +4,7 @@
       <span id="result-text">{{ display }}</span>
     </div>
 
-    <button class="top-btn" @click="resetDisplay()">AC</button>
+    <button class="top-btn" @click="resetToDefault()">AC</button>
     <button class="top-btn" @click="plusminus()">+/-</button>
     <button class="top-btn" @click="percent()">%</button>
     <button class="side-btn" @click="division()">/</button>
@@ -37,30 +37,27 @@
 </template>
 
 <script>
-// DevPlan:
-// - set up logic
-//   ✅ dont use parse int because nums could be double with comma
-//   ✅ add plus minus etc.
-//   - use another data to add
-// - logic to improve
-//   - make division properly with parseFloat then check if can be converted to int
-//   - numbers can't have length > 9 because it will overflow on display
-//   - if exec is tapped show current value of savedNum until user starts writing new data
-//     - then if new exec is clicked without typing number just change exec
-// - write some tests for coverage
 export default {
   data() {
     return {
       display: "0",
       savedNum: "0",
       oldExec: "+",
+      showSavedNum: false,
     };
   },
   methods: {
-    resetDisplay() {
+    resetToDefault() {
+      this.showSavedNum = false;
       this.display = "0";
+      this.savedNum = "0";
+      this.oldExec = "+";
     },
     addToDisplay(num) {
+      if (this.showSavedNum === true) {
+        this.showSavedNum = false;
+        this.display = "";
+      }
       if (this.display === "0") {
         this.display = num;
       } else {
@@ -68,13 +65,16 @@ export default {
       }
     },
     executeSavedData() {
+      if (this.showSavedNum === true) {
+        return;
+      }
       if (this.display.includes(".") || this.savedNum.includes(".")) {
         this.executeFloat();
       } else {
         this.executeInt();
       }
-      console.log(this.savedNum);
-      this.display = "0";
+      this.display = this.savedNum;
+      this.showSavedNum = true;
     },
     executeInt() {
       if (this.oldExec === "+") {
@@ -144,12 +144,11 @@ export default {
     },
     percent() {
       this.display = (parseFloat(this.display) / 100).toString();
-      console.log("mod");
     },
     equals() {
       this.executeSavedData();
       this.display = this.savedNum;
-      this.savedNum = "0";
+      this.showSavedNum = true;
       this.oldExec = "+";
     },
   },

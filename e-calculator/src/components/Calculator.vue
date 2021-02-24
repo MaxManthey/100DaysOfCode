@@ -17,9 +17,9 @@
     <button class="num-btn" @click="addToDisplay('4')">4</button>
     <button class="num-btn" @click="addToDisplay('5')">5</button>
     <button class="num-btn" @click="addToDisplay('6')">6</button>
-    <button class="side-btn" @click="subtract()">-</button>
+    <button class="side-btn" id="sub-btn" @click="subtract()">-</button>
 
-    <button class="num-btn" @click="addToDisplay('1')">1</button>
+    <button class="num-btn" id="one-btn" @click="addToDisplay('1')">1</button>
     <button class="num-btn" @click="addToDisplay('2')">2</button>
     <button class="num-btn" @click="addToDisplay('3')">3</button>
     <button class="side-btn" @click="add()">+</button>

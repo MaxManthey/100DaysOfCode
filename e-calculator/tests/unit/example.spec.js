@@ -1,12 +1,32 @@
-import { shallowMount } from '@vue/test-utils'
-import HelloWorld from '@/components/HelloWorld.vue'
+import { mount } from '@vue/test-utils'
+import Calculator from '@/components/Calculator.vue'
 
-describe('HelloWorld.vue', () => {
-  it('renders props.msg when passed', () => {
-    const msg = 'new message'
-    const wrapper = shallowMount(HelloWorld, {
-      props: { msg }
-    })
-    expect(wrapper.text()).toMatch(msg)
-  })
+test('Add 1 to display', async () => {
+  // it('adds to display', async () => {
+    const wrapper = mount(Calculator)
+    const oneBtn = wrapper.find('#one-btn')
+    const resultText = wrapper.find('#result-text')
+
+    await oneBtn.trigger('click')
+
+    expect(resultText.text()).toContain('1')
+  // })
+})
+
+test('substraction', async () => {
+  // it('adds to display', async () => {
+    const wrapper = mount(Calculator)
+    const oneBtn = wrapper.find('#one-btn')
+    const subBtn = wrapper.find('#sub-btn') 
+    const resultText = wrapper.find('#result-text')
+    const eqBtn = wrapper.find('#bottom-right-btn')
+
+    await oneBtn.trigger('click')
+    await oneBtn.trigger('click')
+    await subBtn.trigger('click')
+    await oneBtn.trigger('click')
+    await eqBtn.trigger('click')
+
+    expect(resultText.text()).toContain('10')
+  // })
 })

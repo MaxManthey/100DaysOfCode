@@ -5,44 +5,55 @@
     </div>
 
     <button class="top-btn" @click="resetDisplay()">AC</button>
-    <button class="top-btn">+/-</button>
-    <button class="top-btn">%</button>
-    <button class="side-btn">/</button>
+    <button class="top-btn" @click="plusminus()">+/-</button>
+    <button class="top-btn" @click="percent()">%</button>
+    <button class="side-btn" @click="division()">/</button>
 
     <button class="num-btn" @click="addToDisplay('7')">7</button>
     <button class="num-btn" @click="addToDisplay('8')">8</button>
     <button class="num-btn" @click="addToDisplay('9')">9</button>
-    <button class="side-btn">*</button>
+    <button class="side-btn" @click="multiply()">*</button>
 
     <button class="num-btn" @click="addToDisplay('4')">4</button>
     <button class="num-btn" @click="addToDisplay('5')">5</button>
     <button class="num-btn" @click="addToDisplay('6')">6</button>
-    <button class="side-btn">-</button>
+    <button class="side-btn" @click="subtract()">-</button>
 
     <button class="num-btn" @click="addToDisplay('1')">1</button>
     <button class="num-btn" @click="addToDisplay('2')">2</button>
     <button class="num-btn" @click="addToDisplay('3')">3</button>
-    <button class="side-btn">+</button>
+    <button class="side-btn" @click="add()">+</button>
 
-    <button class="num-btn zero-btn" id="bottom-left-btn">0</button>
-    <button class="num-btn" @click="addToDisplay(',')">,</button>
-    <button class="side-btn" id="bottom-right-btn">=</button>
+    <button
+      class="num-btn zero-btn"
+      id="bottom-left-btn"
+      @click="addToDisplay('0')"
+    >
+      0
+    </button>
+    <button class="num-btn" @click="addToDisplay('.')">.</button>
+    <button class="side-btn" id="bottom-right-btn" @click="equals()">=</button>
   </div>
 </template>
 
 <script>
 // DevPlan:
 // - set up logic
-//   - dont use parse int because nums could be double with comma
-//   - add plus minus etc.
+//   ✅ dont use parse int because nums could be double with comma
+//   ✅ add plus minus etc.
 //   - use another data to add
 // - logic to improve
+//   - make division properly with parseFloat then check if can be converted to int
 //   - numbers can't have length > 9 because it will overflow on display
+//   - if exec is tapped show current value of savedNum until user starts writing new data
+//     - then if new exec is clicked without typing number just change exec
 // - write some tests for coverage
 export default {
   data() {
     return {
       display: "0",
+      savedNum: "0",
+      oldExec: "+",
     };
   },
   methods: {
@@ -55,6 +66,91 @@ export default {
       } else {
         this.display += num;
       }
+    },
+    executeSavedData() {
+      if (this.display.includes(".") || this.savedNum.includes(".")) {
+        this.executeFloat();
+      } else {
+        this.executeInt();
+      }
+      console.log(this.savedNum);
+      this.display = "0";
+    },
+    executeInt() {
+      if (this.oldExec === "+") {
+        this.savedNum = (
+          parseInt(this.savedNum) + parseInt(this.display)
+        ).toString();
+      } else if (this.oldExec === "-") {
+        this.savedNum = (
+          parseInt(this.savedNum) - parseInt(this.display)
+        ).toString();
+      } else if (this.oldExec === "/") {
+        this.savedNum = (
+          parseInt(this.savedNum) / parseInt(this.display)
+        ).toString();
+      } else if (this.oldExec === "*") {
+        this.savedNum = (
+          parseInt(this.savedNum) * parseInt(this.display)
+        ).toString();
+      }
+    },
+    executeFloat() {
+      if (this.oldExec === "+") {
+        this.savedNum = (
+          parseFloat(this.savedNum) + parseFloat(this.display)
+        ).toString();
+      } else if (this.oldExec === "-") {
+        this.savedNum = (
+          parseFloat(this.savedNum) - parseFloat(this.display)
+        ).toString();
+      } else if (this.oldExec === "/") {
+        this.savedNum = (
+          parseFloat(this.savedNum) / parseFloat(this.display)
+        ).toString();
+      } else if (this.oldExec === "*") {
+        this.savedNum = (
+          parseFloat(this.savedNum) * parseFloat(this.display)
+        ).toString();
+      }
+    },
+    division() {
+      this.executeSavedData();
+      this.oldExec = "/";
+    },
+    multiply() {
+      this.executeSavedData();
+      this.oldExec = "*";
+    },
+    subtract() {
+      this.executeSavedData();
+      this.oldExec = "-";
+    },
+    add() {
+      this.executeSavedData();
+      this.oldExec = "+";
+    },
+    plusminus() {
+      if (this.display === "0") {
+        return;
+      }
+      let changeDisplay = this.display.split("");
+      if (changeDisplay[0] === "-") {
+        changeDisplay.shift();
+      } else {
+        changeDisplay.unshift("-");
+      }
+      this.display = changeDisplay.join("");
+    },
+    percent() {
+      this.display = (parseFloat(this.display) / 100).toString();
+      console.log("mod");
+    },
+    equals() {
+      this.executeSavedData();
+      this.display = this.savedNum;
+      this.savedNum = "0";
+      this.oldExec = "+";
     },
   },
 };

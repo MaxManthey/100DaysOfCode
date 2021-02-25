@@ -2,8 +2,6 @@
 
 macOS calculator clone programmed in Vue and tested with Jest
 
-macOS calculator clone for the browser in vue.js
-
 ## Project setup
 ```
 npm install

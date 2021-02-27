@@ -1,5 +1,7 @@
 # e-weather-app
 
+weather app using Vue and the open weather api
+
 ## Project setup
 ```
 npm install

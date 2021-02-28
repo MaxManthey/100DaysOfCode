@@ -1,6 +1,4 @@
-# e-weather-app
-
-weather app using Vue and the open weather api
+# e-open-weather-app
 
 ## Project setup
 ```

@@ -1,37 +1,54 @@
 <template>
   <div>
-    <button @click="setTemperature()">moin</button>
+    <b-field label="City Name" class="city-input">
+      <b-input v-model="cityName"></b-input>
+    </b-field>
+    <b-button @click="openWeatherAPICall()">set</b-button>
+    <b-button @click="getWeather()">get</b-button>
+    <div v-if="citySet">
+      <h1 class="is-size-2">Weather in {{ displayCityName }}</h1>
+      <p>Current temperature: {{ temp }} deg Celsius</p>
+      <p>Feels like: {{ feelsLike }} deg Celsius</p>
+      <p>Max temperature: {{ maxTemp }} deg Celsius</p>
+      <p>Min temperature: {{ minTemp }} deg Celsius</p>
+      <p>Wind speed: {{ windSpeed }} mph</p>
+    </div>
   </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   data() {
     return {
-      temperature: 0,
+      cityName: "",
+      displayCityName: "",
+      citySet: false,
+      temp: 0,
+      feelsLike: 0,
+      maxTemp: 0,
+      minTemp: 0,
+      windSpeed: 0,
     };
   },
+  computed: {
+    ...mapState(["weatherData"]),
+  },
   methods: {
-    async setTemperature() {
-      let test = await this.openWeatherAPICall();
-      console.log("ja moin ", test);
+    getWeather() {
+      this.citySet = true;
+      this.displayCityName = this.cityName;
+      const data = this.$store.state.weatherData;
+      this.temp = this.kelvinToCelsius(data.main.temp);
+      this.feelsLike = this.kelvinToCelsius(data.main.feels_like);
+      this.maxTemp = this.kelvinToCelsius(data.main.temp_max);
+      this.minTemp = this.kelvinToCelsius(data.main.temp_min);
+      this.windSpeed = data.wind.speed;
     },
-    async openWeatherAPICall() {
-      var key = "13ff8daa980a9d75c862e7f9007a1fc6";
-      fetch(
-        "https://api.openweathermap.org/data/2.5/weather?q=Belfast&appid=" + key
-      )
-        .then(function(resp) {
-          return resp.json();
-        }) // Convert data to json
-        .then(function(data) {
-          console.log(data);
-          console.log(data.main.temp);
-          return data;
-        })
-        .catch(function(e) {
-          console.error("ERROR ", e);
-        });
+    openWeatherAPICall() {
+      if (this.cityName.length) {
+        this.$store.dispatch("updateCityData", this.cityName);
+      }
     },
     kelvinToCelsius(kelvin) {
       return kelvin - 273.15;
@@ -40,4 +57,9 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.city-input {
+  margin: 0 auto;
+  width: 30%;
+}
+</style>

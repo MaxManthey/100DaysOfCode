@@ -1,0 +1,15 @@
+<template>
+  <div>
+    <h1 class="is-size-2">Addition</h1>
+    <back-button />
+  </div>
+</template>
+
+<script>
+import BackButton from "../components/BackButton.vue";
+export default {
+  components: { BackButton },
+};
+</script>
+
+<style lang="scss" scoped></style>

@@ -1,14 +1,16 @@
 <template>
   <div>
     <h1 class="is-size-2">Multiplication</h1>
+    <play-game />
     <back-button />
   </div>
 </template>
 
 <script>
+import PlayGame from '../components/PlayGame.vue';
 import BackButton from "../components/BackButton.vue";
 export default {
-  components: { BackButton },
+  components: { BackButton, PlayGame },
 };
 </script>
 

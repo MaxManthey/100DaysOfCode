@@ -1,17 +1,22 @@
 <template>
   <div>
     <p @click="test()">{{ randomQuestion }}</p>
-    <li v-for="answer in possibleAnswers" :key="answer">
-      <answer-button :answer="answer" />
-    </li>
+    <ul>
+      <li v-for="answer in possibleAnswers" :key="answer">
+        {{ answer }}
+        <!-- <answer-button :answer="answer" /> -->
+      </li>
+    </ul>
+    <b-button @click="test">test</b-button>
   </div>
 </template>
 
 <script>
 import AnswerButton from "./AnswerButton.vue";
 import { mapState } from "vuex";
+import Addition from "../views/Addition.vue";
 export default {
-  components: { AnswerButton },
+  components: { AnswerButton, Addition },
   data() {
     return {
       randomQuestion: "",
@@ -19,8 +24,8 @@ export default {
     };
   },
   created() {
-    this.randomQuestion = this.$store.state.question;
     this.possibleAnswers = this.$store.state.answers;
+    // this.randomQuestion = this.$store.state.question;
   },
   computed: {
     ...mapState(["question", "answers"]),

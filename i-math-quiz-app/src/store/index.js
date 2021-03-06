@@ -53,14 +53,15 @@ export default new Vuex.Store({
     setExercise(state, question, answers) {
       state.question = question
       state.answers = answers
+      console.log("testo: ", state.answers)
     }
   },
   actions: {
     setExercise(context, type) {
       if (type == "add") {
         let numbers = addition()
-        console.log(getAnswers(numbers))
-        console.log(getQuestion(numbers))
+        console.log("answers ", getAnswers(numbers))
+        console.log("questions ", getQuestion(numbers, " + "))
         context.commit("setExercise", getQuestion(numbers, " + "), getAnswers(numbers))
       } else if(type == "sub") {
         let numbers = subtraction()

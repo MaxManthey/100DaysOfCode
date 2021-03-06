@@ -5,8 +5,8 @@
 <script>
 export default {
   props: {
-    answer: Number
-  }
+    answer: Number,
+  },
 };
 </script>
 

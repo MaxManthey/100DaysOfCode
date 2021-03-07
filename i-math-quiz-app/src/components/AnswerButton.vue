@@ -1,5 +1,5 @@
 <template>
-  <b-button class="is-size-4 btn">{{ answer }}</b-button>
+  <b-button class="is-size-6 btn">{{ answer }}</b-button>
 </template>
 
 <script>

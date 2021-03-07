@@ -50,28 +50,31 @@ export default new Vuex.Store({
     answers: []
   },
   mutations: {
-    setExercise(state, question, answers) {
+    setQuestion(state, question) {
       state.question = question
+    },
+    setAnswers(state, answers) {
       state.answers = answers
-      console.log("testo: ", state.answers)
     }
   },
   actions: {
     setExercise(context, type) {
       if (type == "add") {
         let numbers = addition()
-        console.log("answers ", getAnswers(numbers))
-        console.log("questions ", getQuestion(numbers, " + "))
-        context.commit("setExercise", getQuestion(numbers, " + "), getAnswers(numbers))
+        context.commit("setQuestion", getQuestion(numbers, " + "))
+        context.commit("setAnswers", getAnswers(numbers))        
       } else if(type == "sub") {
         let numbers = subtraction()
-        context.commit("setExercise", getQuestion(numbers, " - "), getAnswers(numbers))
+        context.commit("setQuestion", getQuestion(numbers, " - "))
+        context.commit("setAnswers", getAnswers(numbers))        
       } else if(type == "mult") {
         let numbers = multiplication()
-        context.commit("setExercise", getQuestion(numbers, " * "), getAnswers(numbers))
+        context.commit("setQuestion", getQuestion(numbers, " * "))
+        context.commit("setAnswers", getAnswers(numbers))        
       } else if(type == "div") {
         let numbers = division()
-        context.commit("setExercise", getQuestion(numbers, " / "), getAnswers(numbers))
+        context.commit("setQuestion", getQuestion(numbers, " / "))
+        context.commit("setAnswers", getAnswers(numbers))        
       }
     },
   },

@@ -1,13 +1,11 @@
 <template>
   <div>
-    <p @click="test()">{{ randomQuestion }}</p>
+    <p class="is-size-4">{{ randomQuestion }}</p>
     <ul>
-      <li v-for="answer in possibleAnswers" :key="answer">
-        {{ answer }}
-        <!-- <answer-button :answer="answer" /> -->
+      <li v-for="answer in possibleAnswers" :key="answer.id">
+        <answer-button :answer="answer" class="answer-btn" />
       </li>
     </ul>
-    <b-button @click="test">test</b-button>
   </div>
 </template>
 
@@ -25,17 +23,20 @@ export default {
   },
   created() {
     this.possibleAnswers = this.$store.state.answers;
-    // this.randomQuestion = this.$store.state.question;
+    this.randomQuestion = this.$store.state.question;
   },
   computed: {
     ...mapState(["question", "answers"]),
   },
-  methods: {
-    test() {
-      console.log(this.possibleAnswers);
-    },
-  },
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+ul li {
+  display: inline;
+}
+.answer-btn {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+</style>

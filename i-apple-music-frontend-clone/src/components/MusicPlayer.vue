@@ -1,11 +1,13 @@
 <template>
-    <div>
+    <card-wrapper>
         Currently playing
-    </div>
+    </card-wrapper>
 </template>
 
 <script>
+import CardWrapper from './CardWrapper.vue'
     export default {
+  components: { CardWrapper },
         
     }
 </script>

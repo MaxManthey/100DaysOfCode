@@ -17,23 +17,20 @@ export default {
 
 <style lang="scss" scoped>
 .top-bar {
-    background-color: burlywood;
+    background-color: #f7f7f7;
     position: fixed;
     left: 0;
     top: 0;
     width: 100%;
-    padding: 3% 0px;
 }
 .music-player {
-    background-color: greenyellow;
+    background-color: #f7f7f7;
     position: fixed;
     left: 0;
-    bottom: 0;
+    bottom: 5px;
     width: 100%;
-    text-align: center;
-    padding: 3% 0px
 }
 .main-content {
-    background-color: white
+    background-color: #f7f7f7;
 }
 </style>

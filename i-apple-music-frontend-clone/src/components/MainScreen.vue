@@ -19,6 +19,7 @@ export default {
 .top-bar {
     background-color: #f7f7f7;
     position: fixed;
+    
     left: 0;
     top: 0;
     width: 100%;
@@ -26,9 +27,10 @@ export default {
 .music-player {
     background-color: #f7f7f7;
     position: fixed;
-    left: 0;
-    bottom: 5px;
-    width: 100%;
+    left: 1%;
+    right: 0;
+    bottom: 1%;
+    width: 98%;
 }
 .main-content {
     background-color: #f7f7f7;

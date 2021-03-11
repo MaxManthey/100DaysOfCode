@@ -1,23 +1,22 @@
 <template>
 <card-wrapper>
-        <div class="wrapper">
-        <div class="pl-3">Burger</div>
-        <div class="is-size-5"><b>MaxMusic</b></div>
-        <div class="pr-3">
-          <account />
-        </div>
+        <div class="wrapper">        
+        <burger-menu />
+        <div class="is-size-5"><b>MaxMusic</b></div>        
+        <account />
         </div>
 </card-wrapper>
 </template>
 
 <script>
 import Account from './Account.vue'
+import BurgerMenu from './BurgerMenu.vue'
 import CardWrapper from './CardWrapper.vue'
 import MusicPlayer from './MusicPlayer.vue'
-    export default {
-  components: { MusicPlayer, Account, CardWrapper },
+export default {
+  components: { MusicPlayer, Account, CardWrapper, BurgerMenu },
         
-    }
+}
 </script>
 
 <style lang="scss" scoped>

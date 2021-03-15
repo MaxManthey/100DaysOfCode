@@ -1,5 +1,8 @@
 # i-apple-music-frontend-clone
 
+Clone of apple music web app, using vue.js.  
+Best experience with mobile view -> open console -> select mobile version
+
 ## Project setup
 ```
 npm install

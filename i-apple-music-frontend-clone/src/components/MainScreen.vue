@@ -41,21 +41,18 @@ export default {
 
 <style lang="scss" scoped>
 .top-bar {
-    background-color: #f7f7f7;
+    // background-color: #f7f7f7;
     position: fixed;
     left: 0;
     top: 0;
     width: 100%;
 }
 .music-player {
-    background-color: #f7f7f7;
+    // background-color: #f7f7f7;
     position: fixed;
     left: 1%;
     right: 0;
     bottom: 1%;
     width: 98%;
-}
-.main-content {
-    background-color: #f7f7f7;
 }
 </style>

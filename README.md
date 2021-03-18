@@ -8,5 +8,5 @@ I will code for at least one hour every day for 100 days in a row. I do this to 
 This repository will be my main canvas for said challenge, however I might contribute to other repositories that are private.  
 Any missed days will be listed below  
   
-Missed days: 0  
-Dates of missed days: []
+Missed days: 1  
+Dates of missed days: [17.March.2021(St. Patricks Day)]

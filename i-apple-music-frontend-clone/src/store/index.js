@@ -9,17 +9,61 @@ export default new Vuex.Store({
     playlists: [
       {
         title: "Max PL",
-        songs: []
+        songs: [
+          {
+            song: "Someone new",
+            artist: "Hozier"
+          },
+          {
+            song: "Valerie",
+            artist: "Amy Winehouse"
+          },
+          {
+            song: "Hills Have Eyes",
+            artist: "POORSTACY"
+          },
+        ]
       },
       {
         title: "Fav Alternative",
-        songs: []
+        songs: [
+          {
+            song: "Shake it out",
+            artist: "Hozier"
+          },
+          {
+            song: "Video Games",
+            artist: "Lana Del Rey"
+          },
+          {
+            song: "Cigarette Daydreams",
+            artist: "Cage the Elephant"
+          },
+          {
+            song: "Breezeblocks",
+            artist: "alt-J"
+          },
+        ]
       },
       {
         title: "Lil Peep stuff",
-        songs: []
+        songs: [
+          {
+            song: "Star Shopping",
+            artist: "Lil Peep"
+          },
+          {
+            song: "Awful Things",
+            artist: "Lil Peep"
+          },
+          {
+            song: "I've been waiting",
+            artist: "Lil Peep & iLoveMakonnen"
+          },
+        ]
       }
-    ]
+    ],
+    selectedPlaylist: "Max PL"
   },
   mutations: {
     changeBurgerState(state) {
@@ -27,7 +71,10 @@ export default new Vuex.Store({
     },
     addPlaylist(state, playlist) {
       state.playlists.push(playlist)
-    }
+    },
+    selectedPlaylist(state, playlist) {
+      state.selectedPlaylist = playlist
+    },
   },
   actions: {
     changeBurgerState(context) {
@@ -35,6 +82,9 @@ export default new Vuex.Store({
     },
     addPlaylist(context, playlist) {
       context.commit("addPlaylist", playlist)
+    },
+    selectedPlaylist(context, playlist) {
+      context.commit("selectedPlaylist", playlist)
     }
   },
   modules: {

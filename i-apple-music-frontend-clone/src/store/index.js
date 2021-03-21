@@ -63,7 +63,7 @@ export default new Vuex.Store({
         ]
       }
     ],
-    selectedPlaylist: "Max PL"
+    selectedPlaylist: "Fav Alternative"
   },
   mutations: {
     changeBurgerState(state) {

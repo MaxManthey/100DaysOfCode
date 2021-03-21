@@ -1,12 +1,12 @@
 <template>
     <div>
         <div v-if="showPlayer()">
-            <card-wrapper>
+            <div class="top-bar-buffer">
                 <top-bar />
-            </card-wrapper>
-            <card-wrapper class="top-bar">
+            </div>
+            <div class="top-bar">
                 <top-bar/>
-            </card-wrapper>
+            </div>
             <user-playlist />
             <music-player class="music-player"/>
         </div>
@@ -43,9 +43,14 @@ export default {
 .top-bar {
     // background-color: #f7f7f7;
     position: fixed;
+    // padding: 5%;
     left: 0;
     top: 0;
     width: 100%;
+    height: 5%;
+}
+.top-bar-buffer {
+    height: 5%
 }
 .music-player {
     // background-color: #f7f7f7;

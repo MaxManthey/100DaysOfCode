@@ -20,5 +20,7 @@ export default {
 .top-wrapper {
   display: flex;
   justify-content: space-between;
+  background-color: white;
+  padding: 2% 4%;
 }
 </style>

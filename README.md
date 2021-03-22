@@ -10,3 +10,7 @@ Any missed days will be listed below
   
 Missed days: 1  
 Dates of missed days: [17.March.2021(St. Patricks Day)]
+  
+Project difficulties:
+e - easy  
+i - intermediate

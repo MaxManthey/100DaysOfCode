@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div v-if="showPlayer()">
+        <div v-if="showOptions()">
             <div class="top-bar-buffer">
                 <top-bar />
             </div>
@@ -32,7 +32,7 @@ export default {
         ])
   },
   methods: {
-      showPlayer() {
+      showOptions() {
           return !this.$store.state.showBurger
       }
   }

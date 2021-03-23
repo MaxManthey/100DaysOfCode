@@ -22,13 +22,15 @@
         <hr class="break-line">
         <div class="text-wrapper has-text-weight-bold">Hip-Hop/Rap</div>
         <album class="album-wrapper"/>
+        <bottom-text />
     </div>
 </template>
 
 <script>
 import Album from './Album.vue'
+import BottomText from './BottomText.vue'
     export default {
-  components: { Album },
+  components: { Album, BottomText },
         
     }
 </script>

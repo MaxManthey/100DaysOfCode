@@ -9,7 +9,7 @@
         <hr class="break-line">
         <ul>
             <li v-for="{song, artist} in getSongs" :key="song">
-                <span>
+                <span class="song-wrapper">
                     <img src="https://bulma.io/images/placeholders/32x32.png">
                     <div>
                         <p>{{ song }}</p>
@@ -20,12 +20,15 @@
             </li>
         </ul>
         <hr class="break-line">
+        <bottom-text />
     </div>
 </template>
 
 <script>
 import { mapState } from 'vuex';
+import BottomText from './BottomText.vue';
 export default {
+  components: { BottomText },
     data () {
         return {
             playlistName: ""
@@ -60,7 +63,8 @@ hr.break-line {
 }
 hr.songs-line {
     border-top: 1px solid #d4d4d4;
-    width: 80%;
+    width: 70%;
+    margin-left: 20%;
     margin-top: 0%
 }
 img.titlepic {
@@ -87,5 +91,10 @@ img.titlepic {
     position: relative;
     top: 1px;
     margin-right: 5px;
+}
+.song-wrapper {
+    display: flex;
+    padding-left: 8%;
+    margin: 3%
 }
 </style>

@@ -15,8 +15,8 @@ export default new Vuex.Store({
             artist: "Hozier"
           },
           {
-            song: "Valerie",
-            artist: "Amy Winehouse"
+            song: "Mr. Brightside",
+            artist: "The Killers"
           },
           {
             song: "Hills Have Eyes",
@@ -32,8 +32,8 @@ export default new Vuex.Store({
             artist: "Hozier"
           },
           {
-            song: "Video Games",
-            artist: "Lana Del Rey"
+            song: "Holding On",
+            artist: "Iann Dior"
           },
           {
             song: "Cigarette Daydreams",
@@ -58,7 +58,7 @@ export default new Vuex.Store({
           },
           {
             song: "I've been waiting",
-            artist: "Lil Peep & iLoveMakonnen"
+            artist: "Lil Peep"
           },
         ]
       }

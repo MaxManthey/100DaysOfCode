@@ -5,19 +5,19 @@
 </template>
 
 <script>
-import MainScreen from '../components/MainScreen.vue'
+import MainScreen from "../components/MainScreen.vue";
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
-    MainScreen
-  }
-}
+    MainScreen,
+  },
+};
 </script>
 <style lang="scss">
 a {
-  color: #0C0C0C;
+  color: #0c0c0c;
 }
 a:visited {
-  color: #0C0C0C;
+  color: #0c0c0c;
 }
 </style>

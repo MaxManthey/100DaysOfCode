@@ -12,15 +12,18 @@ export default new Vuex.Store({
         songs: [
           {
             song: "Someone new",
-            artist: "Hozier"
+            artist: "Hozier",
+            time: "3:15"
           },
           {
             song: "Mr. Brightside",
-            artist: "The Killers"
+            artist: "The Killers",
+            time: "3:49"
           },
           {
             song: "Hills Have Eyes",
-            artist: "POORSTACY"
+            artist: "POORSTACY",
+            time: "2:52"
           },
         ]
       },
@@ -28,20 +31,24 @@ export default new Vuex.Store({
         title: "Fav Alternative",
         songs: [
           {
-            song: "Shake it out",
-            artist: "Hozier"
+            song: "Movement",
+            artist: "Hozier",
+            time: "3:34"
           },
           {
             song: "Holding On",
-            artist: "Iann Dior"
+            artist: "Iann Dior",
+            time: "2:59"
           },
           {
             song: "Cigarette Daydreams",
-            artist: "Cage the Elephant"
+            artist: "Cage the Elephant",
+            time: "4:04"
           },
           {
             song: "Breezeblocks",
-            artist: "alt-J"
+            artist: "alt-J",
+            time: "4:31"
           },
         ]
       },
@@ -50,20 +57,23 @@ export default new Vuex.Store({
         songs: [
           {
             song: "Star Shopping",
-            artist: "Lil Peep"
+            artist: "Lil Peep",
+            time: "2:34"
           },
           {
             song: "Awful Things",
-            artist: "Lil Peep"
+            artist: "Lil Peep",
+            time: "3:11"
           },
           {
             song: "I've been waiting",
-            artist: "Lil Peep"
+            artist: "Lil Peep",
+            time: "3:38"
           },
         ]
       }
     ],
-    selectedPlaylist: "Fav Alternative"
+    selectedPlaylist: ""
   },
   mutations: {
     changeBurgerState(state) {

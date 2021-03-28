@@ -25,6 +25,36 @@ export default new Vuex.Store({
             artist: "POORSTACY",
             time: "2:52"
           },
+          {
+            song: "Someone new",
+            artist: "Hozier",
+            time: "3:15"
+          },
+          {
+            song: "Mr. Brightside",
+            artist: "The Killers",
+            time: "3:49"
+          },
+          {
+            song: "Hills Have Eyes",
+            artist: "POORSTACY",
+            time: "2:52"
+          },
+          {
+            song: "Someone new",
+            artist: "Hozier",
+            time: "3:15"
+          },
+          {
+            song: "Mr. Brightside",
+            artist: "The Killers",
+            time: "3:49"
+          },
+          {
+            song: "Hills Have Eyes",
+            artist: "POORSTACY",
+            time: "2:52"
+          },
         ]
       },
       {
@@ -50,11 +80,95 @@ export default new Vuex.Store({
             artist: "alt-J",
             time: "4:31"
           },
+          {
+            song: "Movement",
+            artist: "Hozier",
+            time: "3:34"
+          },
+          {
+            song: "Holding On",
+            artist: "Iann Dior",
+            time: "2:59"
+          },
+          {
+            song: "Cigarette Daydreams",
+            artist: "Cage the Elephant",
+            time: "4:04"
+          },
+          {
+            song: "Breezeblocks",
+            artist: "alt-J",
+            time: "4:31"
+          },
+          {
+            song: "Movement",
+            artist: "Hozier",
+            time: "3:34"
+          },
+          {
+            song: "Holding On",
+            artist: "Iann Dior",
+            time: "2:59"
+          },
+          {
+            song: "Cigarette Daydreams",
+            artist: "Cage the Elephant",
+            time: "4:04"
+          },
+          {
+            song: "Breezeblocks",
+            artist: "alt-J",
+            time: "4:31"
+          },
         ]
       },
       {
         title: "Lil Peep stuff",
         songs: [
+          {
+            song: "Star Shopping",
+            artist: "Lil Peep",
+            time: "2:34"
+          },
+          {
+            song: "Awful Things",
+            artist: "Lil Peep",
+            time: "3:11"
+          },
+          {
+            song: "I've been waiting",
+            artist: "Lil Peep",
+            time: "3:38"
+          },{
+            song: "Star Shopping",
+            artist: "Lil Peep",
+            time: "2:34"
+          },
+          {
+            song: "Awful Things",
+            artist: "Lil Peep",
+            time: "3:11"
+          },
+          {
+            song: "I've been waiting",
+            artist: "Lil Peep",
+            time: "3:38"
+          },
+          {
+            song: "Star Shopping",
+            artist: "Lil Peep",
+            time: "2:34"
+          },
+          {
+            song: "Awful Things",
+            artist: "Lil Peep",
+            time: "3:11"
+          },
+          {
+            song: "I've been waiting",
+            artist: "Lil Peep",
+            time: "3:38"
+          },
           {
             song: "Star Shopping",
             artist: "Lil Peep",

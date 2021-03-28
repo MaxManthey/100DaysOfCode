@@ -1,5 +1,13 @@
 <template>
-  <card-wrapper>
+  <div>
+    <img
+      src="https://bulma.io/images/placeholders/48x48.png"
+      alt="Placeholder image"
+    />
+    <p>Song Name</p>
+    <p>Artist Name</p>
+  </div>
+  <!-- <card-wrapper>
     <div class="media">
       <div class="media-left">
         <figure class="image is-48x48">
@@ -14,7 +22,7 @@
         <p class="subtitle is-6">@johnsmith</p>
       </div>
     </div>
-  </card-wrapper>
+  </card-wrapper> -->
 </template>
 
 <script>

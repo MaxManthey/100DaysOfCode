@@ -39,7 +39,6 @@ export default {
 
 <style lang="scss" scoped>
 .top-bar {
-  // background-color: #f7f7f7;
   position: fixed;
   left: 0;
   top: 0;
@@ -49,7 +48,6 @@ export default {
   height: 5%;
 }
 .music-player {
-  // background-color: #f7f7f7;
   position: fixed;
   left: 1%;
   right: 0;

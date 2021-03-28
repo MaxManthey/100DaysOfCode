@@ -20,9 +20,7 @@
 </template>
 
 <script>
-import CardWrapper from "./CardWrapper.vue";
 export default {
-  components: { CardWrapper },
 };
 </script>
 

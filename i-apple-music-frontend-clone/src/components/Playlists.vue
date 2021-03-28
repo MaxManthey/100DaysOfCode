@@ -57,7 +57,6 @@ export default {
       this.$store.dispatch("changeBurgerState");
     },
     setPlaylist(playlist) {
-      console.log("PL: ", playlist);
       this.changeBurger();
       this.$store.dispatch("selectedPlaylist", playlist);
     },

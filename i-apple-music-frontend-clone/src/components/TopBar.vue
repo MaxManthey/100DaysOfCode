@@ -9,7 +9,6 @@
 <script>
 import Account from "./Account.vue";
 import BurgerMenu from "./BurgerMenu.vue";
-// import CardWrapper from './CardWrapper.vue'
 import MusicPlayer from "./MusicPlayer.vue";
 export default {
   components: { MusicPlayer, Account, BurgerMenu },

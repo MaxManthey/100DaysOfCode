@@ -51,7 +51,6 @@ export default {
       const playlists = this.$store.state.playlists;
       for (let i = 0; i < playlists.length; ++i) {
         if (playlists[i].title === this.playlistName) {
-          console.log(playlists[i].songs);
           return playlists[i].songs;
         }
       }

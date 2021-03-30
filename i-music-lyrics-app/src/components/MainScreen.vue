@@ -1,12 +1,14 @@
 <template>
     <div>
-        <input id="song-name" type="text">
-        <input id="artist-name" type="text">
-        <b-button @click="findLyrics()">Find Lyrics</b-button>
+        <input id="song-name" type="text" class="is-size-5" placeholder="Song Name" v-model="songName">
+        <input id="artist-name" type="text" class="is-size-5" placeholder="Artist Name" v-model="artistName">
+        <br>
+        <button @click="findLyrics()" class="is-size-4 has-text-weight-bold">Find Lyrics</button>
         <div v-if="btnClicked" class="lyrics-wrapper">
             <div class="lyrics-bg">
-                <h1>Song name - Artist Name</h1>
-                <p class="lyrics">
+                <h1 class="is-size-2 has-text-weight-bold">Song name</h1>
+                <h1 class="is-size-3 has-text-weight-bold">Artist Name</h1>
+                <p class="lyrics is-size-5">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tortor aliquam nulla facilisi cras fermentum. Arcu non odio euismod lacinia at. Ultricies lacus sed turpis tincidunt id. Donec adipiscing tristique risus nec. Sit amet luctus venenatis lectus magna. Vitae suscipit tellus mauris a diam maecenas sed. Aenean sed adipiscing diam donec adipiscing tristique risus nec feugiat. Nunc vel risus commodo viverra. Et ultrices neque ornare aenean euismod elementum. Eget aliquet nibh praesent tristique magna. Quis risus sed vulputate odio ut enim blandit volutpat. Morbi tincidunt augue interdum velit euismod in pellentesque massa. Suspendisse ultrices gravida dictum fusce ut placerat orci nulla pellentesque. Magna eget est lorem ipsum dolor sit amet. Et malesuada fames ac turpis.
 
 Convallis tellus id interdum velit laoreet id. Viverra nibh cras pulvinar mattis nunc sed blandit. Mus mauris vitae ultricies leo. Elementum nisi quis eleifend quam adipiscing vitae proin. Et netus et malesuada fames. Morbi blandit cursus risus at ultrices mi tempus imperdiet nulla. Quam vulputate dignissim suspendisse in est ante in nibh. Viverra justo nec ultrices dui sapien eget mi proin. Cras semper auctor neque vitae tempus quam. Vel orci porta non pulvinar neque laoreet suspendisse interdum. Tellus cras adipiscing enim eu turpis egestas pretium aenean. Enim ut tellus elementum sagittis. Orci nulla pellentesque dignissim enim sit amet. Pulvinar neque laoreet suspendisse interdum consectetur. Amet massa vitae tortor condimentum. Fermentum iaculis eu non diam phasellus. Adipiscing at in tellus integer feugiat scelerisque. At risus viverra adipiscing at in tellus integer. At elementum eu facilisis sed odio morbi.
@@ -22,7 +24,9 @@ Vitae semper quis lectus nulla at volutpat diam ut. Consequat nisl vel pretium l
 export default {
     data () {
         return {
-            btnClicked: false           
+            btnClicked: false,
+            songName: "",
+            artistName: "",
         }
     },
     methods: {
@@ -34,6 +38,47 @@ export default {
 </script>
 
 <style scoped>
+input {
+    height: 35px;
+    width: 22ch;
+    margin: 2% 1%;
+    border-radius: 5px;
+    border: 0px;
+    padding-left: 10px;
+}
+@media screen and (max-width: 1000px) {
+    input {
+        width: 90%    
+    }
+    button {
+        margin-top: 3%;
+    }
+}
+input:focus {
+    outline: none;
+}
+button {
+    padding: 10px;
+    background-color: #fff;
+    border: 0px;
+    border-radius: 5px;
+    box-shadow: 0 12px 10px -6px grey;
+    color: white;
+    background-color: rgba(148,187,233,1);
+}
+button:focus {
+    outline: none;    
+}
+button:hover {
+    background-color: rgba(238,174,202,1);    
+}
+button:active {
+    box-shadow: 0 8px 6px -6px black;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 90px;
+}
 .lyrics-wrapper {
   display: grid;
   grid-template-columns:
@@ -52,5 +97,6 @@ export default {
 }
 .lyrics {
     text-align: left;
+    margin-top: 5%;
 }
 </style>

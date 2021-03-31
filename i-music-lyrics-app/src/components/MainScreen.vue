@@ -3,7 +3,8 @@
         <input id="song-name" type="text" class="is-size-5" placeholder="Song Name" v-model="songName">
         <input id="artist-name" type="text" class="is-size-5" placeholder="Artist Name" v-model="artistName">
         <br>
-        <button @click="findLyrics()" class="is-size-4 has-text-weight-bold">Find Lyrics</button>
+        <button @click="moin('poets of fall', 'carnival of rust')" class="is-size-4 has-text-weight-bold">Find Lyrics</button>
+        <pre>{{ songName }}</pre>
         <div v-if="btnClicked" class="lyrics-wrapper">
             <div class="lyrics-bg">
                 <h1 class="is-size-2 has-text-weight-bold">Song name</h1>
@@ -32,13 +33,23 @@ export default {
     methods: {
         findLyrics() {
             this.btnClicked = true
-        }
+        },
+        async moin(artist, title) {
+    let lyrics = await lyricsFinder(artist, title) || "Not Found!";
+    console.log(lyrics);
+    this.songName = lyrics
+    }
     }
 }
 </script>
 
 <style scoped>
+h1 {
+    color: #545454;
+}
 input {
+    color: #545454;
+    background-color: #fcfcfc;
     height: 35px;
     width: 22ch;
     margin: 2% 1%;
@@ -59,11 +70,10 @@ input:focus {
 }
 button {
     padding: 10px;
-    background-color: #fff;
     border: 0px;
     border-radius: 5px;
     box-shadow: 0 12px 10px -6px grey;
-    color: white;
+    color: #fcfcfc;
     background-color: rgba(148,187,233,1);
 }
 button:focus {
@@ -73,7 +83,7 @@ button:hover {
     background-color: rgba(238,174,202,1);    
 }
 button:active {
-    box-shadow: 0 8px 6px -6px black;
+    box-shadow: 0 8px 6px -6px grey;
     padding: 5px;
     margin-top: 5px;
     margin-bottom: 5px;
@@ -81,6 +91,7 @@ button:active {
 }
 .lyrics-wrapper {
   display: grid;
+  color: #545454;
   grid-template-columns:
     1fr
     min(65ch, 100%)
@@ -90,7 +101,7 @@ button:active {
   grid-column: 2;
 }
 .lyrics-bg {
-    background-color: white;
+    background-color: #fcfcfc;
     border-radius: 5px;
     padding: 5%;
     margin: 5%;

@@ -10,6 +10,7 @@ import MainScreen from '../components/MainScreen.vue';
 //input of artist name and song name
 // use api https://rapidapi.com/PlanetTeamSpeak/api/mourits-lyrics?endpoint=apiendpoint_c921a5fd-0109-44a3-ba8e-e8b30a1d3304
 // https://github.com/farshed/genius-lyrics-api
+// https://www.npmjs.com/package/lyrics-finder
 // use nice style
 // maybe some gradient
 

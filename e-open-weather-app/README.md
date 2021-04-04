@@ -1,5 +1,7 @@
 # e-open-weather-app
 
+App to get weather data with open weather api.
+
 ## Project setup
 ```
 npm install

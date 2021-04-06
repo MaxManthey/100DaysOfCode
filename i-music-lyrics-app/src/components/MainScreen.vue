@@ -3,8 +3,7 @@
         <input id="song-name" type="text" class="is-size-5" placeholder="Song Name" v-model="songName">
         <input id="artist-name" type="text" class="is-size-5" placeholder="Artist Name" v-model="artistName">
         <br>
-        <button @click="moin('poets of fall', 'carnival of rust')" class="is-size-4 has-text-weight-bold">Find Lyrics</button>
-        <pre>{{ songName }}</pre>
+        <button @click="findLyrics()" class="is-size-4 has-text-weight-bold">Find Lyrics</button>
         <div v-if="btnClicked" class="lyrics-wrapper">
             <div class="lyrics-bg">
                 <h1 class="is-size-2 has-text-weight-bold">Song name</h1>
@@ -22,6 +21,7 @@ Vitae semper quis lectus nulla at volutpat diam ut. Consequat nisl vel pretium l
 </template>
 
 <script>
+import { mapState } from 'vuex';
 export default {
     data () {
         return {
@@ -30,15 +30,20 @@ export default {
             artistName: "",
         }
     },
+    computed: {
+        ...mapState([
+            'lyrics',
+        ])
+    },
     methods: {
         findLyrics() {
+            let songInfo = {
+                song: this.songName,
+                artist: this.artistName,
+            }
+            this.$store.dispatch("updateLyrics", songInfo);
             this.btnClicked = true
-        },
-        async moin(artist, title) {
-    let lyrics = await lyricsFinder(artist, title) || "Not Found!";
-    console.log(lyrics);
-    this.songName = lyrics
-    }
+        }
     }
 }
 </script>

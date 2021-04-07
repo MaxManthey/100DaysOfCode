@@ -5,15 +5,14 @@
         <br>
         <button @click="findLyrics()" class="is-size-4 has-text-weight-bold">Find Lyrics</button>
         <div v-if="btnClicked" class="lyrics-wrapper">
-            <div class="lyrics-bg">
-                <h1 class="is-size-2 has-text-weight-bold">Song name</h1>
-                <h1 class="is-size-3 has-text-weight-bold">Artist Name</h1>
+            <div v-if="lyrics === 'nf'" class="not-found">
+                <h1 class="is-size-2 has-text-weight-bold">Lyrics to {{song}} from {{artist}} not found please try again</h1>
+            </div>
+            <div class="lyrics-bg" v-else>
+                <h1 class="is-size-2 has-text-weight-bold">{{song}}</h1>
+                <h1 class="is-size-3 has-text-weight-bold">{{artist}}</h1>
                 <p class="lyrics is-size-5">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tortor aliquam nulla facilisi cras fermentum. Arcu non odio euismod lacinia at. Ultricies lacus sed turpis tincidunt id. Donec adipiscing tristique risus nec. Sit amet luctus venenatis lectus magna. Vitae suscipit tellus mauris a diam maecenas sed. Aenean sed adipiscing diam donec adipiscing tristique risus nec feugiat. Nunc vel risus commodo viverra. Et ultrices neque ornare aenean euismod elementum. Eget aliquet nibh praesent tristique magna. Quis risus sed vulputate odio ut enim blandit volutpat. Morbi tincidunt augue interdum velit euismod in pellentesque massa. Suspendisse ultrices gravida dictum fusce ut placerat orci nulla pellentesque. Magna eget est lorem ipsum dolor sit amet. Et malesuada fames ac turpis.
-
-Convallis tellus id interdum velit laoreet id. Viverra nibh cras pulvinar mattis nunc sed blandit. Mus mauris vitae ultricies leo. Elementum nisi quis eleifend quam adipiscing vitae proin. Et netus et malesuada fames. Morbi blandit cursus risus at ultrices mi tempus imperdiet nulla. Quam vulputate dignissim suspendisse in est ante in nibh. Viverra justo nec ultrices dui sapien eget mi proin. Cras semper auctor neque vitae tempus quam. Vel orci porta non pulvinar neque laoreet suspendisse interdum. Tellus cras adipiscing enim eu turpis egestas pretium aenean. Enim ut tellus elementum sagittis. Orci nulla pellentesque dignissim enim sit amet. Pulvinar neque laoreet suspendisse interdum consectetur. Amet massa vitae tortor condimentum. Fermentum iaculis eu non diam phasellus. Adipiscing at in tellus integer feugiat scelerisque. At risus viverra adipiscing at in tellus integer. At elementum eu facilisis sed odio morbi.
-
-Vitae semper quis lectus nulla at volutpat diam ut. Consequat nisl vel pretium lectus quam id leo in vitae. Posuere lorem ipsum dolor sit amet consectetur adipiscing elit. Sollicitudin tempor id eu nisl nunc mi ipsum. Amet aliquam id diam maecenas ultricies mi eget. Turpis massa sed elementum tempus egestas sed sed risus pretium. Gravida in fermentum et sollicitudin ac orci phasellus egestas. Sit amet nulla facilisi morbi. Tincidunt dui ut ornare lectus. Justo laoreet sit amet cursus sit amet dictum sit. Ut eu sem integer vitae justo eget. Feugiat nibh sed pulvinar proin gravida hendrerit lectus a. Lobortis elementum nibh tellus molestie nunc non blandit massa enim. Scelerisque fermentum dui faucibus in ornare quam viverra. Massa sed elementum tempus egestas sed sed risus. Tristique et egestas quis ipsum suspendisse ultrices. Hendrerit gravida rutrum quisque non tellus orci ac auctor augue.
+                    {{lyrics}}
                 </p>
             </div>
         </div>
@@ -32,16 +31,16 @@ export default {
     },
     computed: {
         ...mapState([
-            'lyrics',
+            'lyrics', 'song', 'artist'
         ])
     },
     methods: {
         findLyrics() {
-            let songInfo = {
+            let payload = {
                 song: this.songName,
                 artist: this.artistName,
             }
-            this.$store.dispatch("updateLyrics", songInfo);
+            this.$store.dispatch("updateLyrics", payload);
             this.btnClicked = true
         }
     }
@@ -113,6 +112,9 @@ button:active {
 }
 .lyrics {
     text-align: left;
+    margin-top: 5%;
+}
+.not-found {
     margin-top: 5%;
 }
 </style>

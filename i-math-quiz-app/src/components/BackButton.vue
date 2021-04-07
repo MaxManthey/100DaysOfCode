@@ -12,6 +12,6 @@ export default {};
 
 <style lang="scss" scoped>
 .back-btn {
-  margin-top: 70px
+  margin-top: 70px;
 }
 </style>

@@ -9,7 +9,7 @@ This repository will be my main canvas for said challenge, however I might contr
 Every missed day will be listed below  
   
 Missed days: 1  
-Dates of missed days: [17.March.2021(St. Patricks Day)]
+Dates of missed days: [17.March.2021(St. Patricks Day), 12.April.2021]
   
 Project difficulties:  
 e - easy  

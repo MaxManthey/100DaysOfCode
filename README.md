@@ -12,5 +12,5 @@ Missed days: 1
 Dates of missed days: [17.March.2021(St. Patricks Day), 12.April.2021]
   
 Project difficulties:  
-e - easy  
-i - intermediate
+e - easy (Projects that should be easy to me / I have done something like this before)  
+i - intermediate (Projects that are a bit trickier but still in my comfort zone and shouldn't be too hard to do)

@@ -2,7 +2,7 @@
 
 macOS calculator clone programmed in Vue and tested with Jest
 
-![Calc Demo](https://github.com/MaxManthey/100DaysOfCode/tree/main/e-calculator/src/assets/CalcDemo.png?raw=true)  
+![Calc Demo](src/assets/CalcDemo.png?raw=true)  
 
 ## Project setup
 ```

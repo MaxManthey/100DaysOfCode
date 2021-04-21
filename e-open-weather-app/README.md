@@ -1,6 +1,6 @@
 # e-open-weather-app
 
-App to get weather data with open weather api.
+App to display weather data using the open weather api and Vue.js.
 
 ## Project setup
 ```

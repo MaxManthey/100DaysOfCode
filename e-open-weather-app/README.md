@@ -2,6 +2,8 @@
 
 App to display weather data using the open weather api and Vue.js.
 
+![Weather Demo](src/assets/weatherDemo.png?raw=true)
+
 ## Project setup
 ```
 npm install

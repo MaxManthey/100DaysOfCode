@@ -1,12 +1,16 @@
 <template>
     <div>
-        dashboard [name of app]
-        add new activity    user icon to account
+        <h1 class="is-size-3">app name</h1>
+        <b-button>new activity</b-button>
+        <!-- todo: change to icon -->
+        <b-button><router-link to="/account">Account</router-link></b-button>
+        <br>
+        <div>
         list of activities
-            name, markTodayAsDone, startdate, numberMissedDays, menu, collapse
-                menu: edit name, delete activity
-                collapse: show all days missed and hit, mark yesterday as done if not already
-                
+            <div>name, markTodayAsDone, startdate, numberMissedDays, menu, collapse</div>
+            <div>menu: edit name, delete activity</div>
+            <div>collapse: show all days missed and hit, mark yesterday as done if not already</div>
+        </div>   
     </div>
 </template>
 

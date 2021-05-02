@@ -5,9 +5,10 @@
 </template>
 
 <script>
-import LoginContainer from '../components/LoginContainer.vue';
+import LoginContainer from "../components/LoginContainer.vue";
 export default {
-  components: { LoginContainer },};
+  components: { LoginContainer },
+};
 </script>
 
 <style lang="scss" scoped></style>

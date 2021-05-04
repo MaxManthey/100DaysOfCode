@@ -8,6 +8,22 @@
   </div>
 </template>
 
+<script>
+// Dev Plan
+//   - set up login component with Vuelidate
+//     - when logging in just check if data correct
+//   - set up register component
+//   - connect firebase to app
+//     - make sure not to copy credentials to github
+//   - make registration and login work with firebase
+//   - set up database for user
+//   - show data for user on dashboard
+//   - account options
+//     - change password
+//     - delete account
+</script>
+
+
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

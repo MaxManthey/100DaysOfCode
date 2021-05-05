@@ -1,7 +1,10 @@
 <template>
-  <div>
+  <div class="wrapper">
     <login-screen v-if="showLoginScreen" />
     <register-screen v-else />
+    <p class="change-screen-text" v-if="showLoginScreen">Don't have an account yet? <a @click="showLoginScreen = !showLoginScreen">Register</a></p>
+    <p class="change-screen-text" v-else>Back to <a @click="showLoginScreen = !showLoginScreen">Login</a></p>
+    <b-button v-if="showLoginScreen"><router-link to="/home">Dashboard</router-link></b-button>
   </div>
 </template>
 
@@ -18,4 +21,19 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.wrapper {
+  display: grid;
+  grid-template-columns:
+    1fr
+    calc(min(60ch, calc(100% - 64px)))
+    1fr;
+  grid-column-gap: 32px;
+}
+.wrapper > * {
+  grid-column: 2;
+}
+.change-screen-text {
+  margin-top: 3%;
+}
+</style>

@@ -4,18 +4,16 @@
     Vuelidate Username pw
     <br />
     <form @submit.prevent="submit">
-      <div>
-        <div class="labels">
-          <label>Email</label>
-          <b-input type="email" v-model="form.email"></b-input>
-        </div>
-        <div class="labels">
-          <label>Password</label>
-          <b-input type="text" v-model="form.password"></b-input>
-        </div>
+      <div class="labels form-group">
+        <label>Email</label>
+        <b-input type="email" class="form__input" v-model.trim="$v.form.email.$model" />
       </div>
-      <div>
-        <b-button type="submit">
+      <div class="labels form-group">
+        <label>Password</label>
+        <b-input type="text" class="form__input" v-model.trim="$v.form.password.$model" />
+      </div>
+      <div class="form-group">
+        <b-button type="submit" class="button">
           Login
         </b-button>
       </div>
@@ -30,15 +28,15 @@ export default {
   data() {
     return {
       form: {
-        name: "",
-        email: ""
+        email: "",
+        password: ""
       }
     };
   },
   validations: {
     form: {
-      name: { required, min: minLength(10) },
-      email: { required, email }
+      email: { required, email },
+      password: { required, min: minLength(10) }
     }
   },
   methods: {

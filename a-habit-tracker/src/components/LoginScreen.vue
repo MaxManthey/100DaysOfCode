@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="is-size-3">app name</h1>
+    <h1 class="is-size-3">Login</h1>
     Vuelidate Username pw
     <br />
     <form @submit.prevent="submit">

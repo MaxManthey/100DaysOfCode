@@ -9,6 +9,18 @@
 </template>
 
 <script>
+export default {
+  data() {
+    return {
+      lightMode: true
+    };
+  },
+  methods: {
+    changeMode() {
+      localStorage.setItem("lightMode", this.lightMode)
+    }
+  }
+}
 // Dev Plan
 //   - set up login component with Vuelidate
 //     - when logging in just check if data correct
@@ -25,12 +37,18 @@
 
 
 <style lang="scss">
+@import '../public/style/darkLightMode.scss';
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+h1 {
+  background-color: $dark-bg;
+  color: $dark-font;
 }
 
 #nav {

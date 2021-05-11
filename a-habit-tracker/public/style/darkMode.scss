@@ -1,0 +1,14 @@
+@import 'darkLightMode.scss';
+
+.dark-mode {
+    html, body {
+        background-color: $dark-bg;
+        color: $dark-font;
+    }
+    h1 {
+        color: $dark-font;
+    }
+    p {
+        color: $dark-sec-font;
+    }
+}

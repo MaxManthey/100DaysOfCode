@@ -1,12 +1,5 @@
 <template>
-  <div>
-    <b-switch
-      v-model="lightMode"
-      class="mode-switch"
-      passive-type='is-dark'
-      type='is-warning'>
-      {{ lightMode ? "Light Mode" : "Dark Mode" }}
-    </b-switch>
+  <div class="dark-mode">
     <div class="wrapper">
       <login-screen v-if="showLoginScreen" />
       <register-screen v-else />
@@ -32,6 +25,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../public/style/darkMode.scss';
+// html, body, .wrapper {
+//   background-color: $dark;
+// }
 .mode-switch {
   display: flex;
   justify-content: flex-end;

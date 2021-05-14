@@ -1,0 +1,48 @@
+@import './colorScheme.scss';
+//https://uxdesign.cc/dark-mode-ui-design-the-definitive-guide-part-1-color-53dcfaea5129
+html, body {
+    background-color: $dark-bg;
+    // color: $dark-font;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a {
+    color: $dark-font;
+}
+label,
+p {
+    color: $dark-sec-font;
+}
+a:hover {
+    color: $light-sec-bg;
+}
+.main-btn {
+    background-color: $dark-font;
+    color: $dark-bg;
+    border: 0px;
+}
+.sec-btn {
+    background-color: $dark-sec-bg;
+    color: $dark-font;
+    border: 0px;
+}
+
+.input-fieldd {
+    background-color: $dark-sec-bg;
+    color: $dark-sec-font;
+    border: 0px;
+}
+.input-field:active {
+    border: 2px solid $dark-font;
+}
+.info-tag {
+    background-color: $dark-sec-bg;
+    color: $dark-sec-font;
+}

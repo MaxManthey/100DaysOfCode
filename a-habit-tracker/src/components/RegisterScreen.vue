@@ -1,6 +1,6 @@
 <template>
   <div>
-    Register name email password
+    <p>Register name email password</p>
     <form @submit.prevent="submit">
       <div>
         <div class="labels">

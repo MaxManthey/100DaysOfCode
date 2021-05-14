@@ -5,7 +5,7 @@
       <register-screen v-else />
       <p class="change-screen-text" v-if="showLoginScreen">Don't have an account yet? <a @click="showLoginScreen = !showLoginScreen">Register</a></p>
       <p class="change-screen-text" v-else>Back to <a @click="showLoginScreen = !showLoginScreen">Login</a></p>
-      <b-button v-if="showLoginScreen"><router-link to="/home">Dashboard</router-link></b-button>
+      <b-button v-if="showLoginScreen" class="sec-btn"><router-link to="/home"><h1>Dashboard</h1></router-link></b-button>
     </div>
   </div>
 </template>
@@ -25,10 +25,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../../public/style/darkMode.scss';
-// html, body, .wrapper {
-//   background-color: $dark;
-// }
 .mode-switch {
   display: flex;
   justify-content: flex-end;

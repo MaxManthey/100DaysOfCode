@@ -27,7 +27,7 @@ export default {
 //   - set up register component
 //   - connect firebase to app
 //     - make sure not to copy credentials to github
-//   - make registration and login work with firebase
+//   - make registration and login work with firebase auth
 //   - set up database for user
 //   - show data for user on dashboard
 //   - account options
@@ -37,30 +37,11 @@ export default {
 
 
 <style lang="scss">
-@import '../public/style/darkLightMode.scss';
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-
-h1 {
-  background-color: $dark-bg;
-  color: $dark-font;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
 }
 </style>

@@ -2,9 +2,9 @@
   <div class="wrapper">
     <h1 class="is-size-3"><b>app name</b></h1>
     <div class="btn-wrapper">
-      <b-button @click="prompt">new activity</b-button>
+      <b-button @click="prompt" class="main-btn">new activity</b-button>
       <!-- todo: change to icon -->
-      <b-button><router-link to="/account">Account</router-link></b-button>
+      <b-button class="sec-btn"><router-link to="/account">Account</router-link></b-button>
     </div>
     <br />
     <div v-for="item in activities" :key="item.id" class="list-wrapper">
@@ -19,8 +19,8 @@
           <span class="is-size-5">
             {{ item.name }}
           </span>
-          <b-tag class="pad"> Start date: {{ item.startDate }} </b-tag>
-          <b-tag class="pad"> Missed days: {{ item.missedDays.length }} </b-tag>
+          <b-tag class="pad info-tag"> Start date: {{ item.startDate }} </b-tag>
+          <b-tag class="pad info-tag"> Missed days: {{ item.missedDays.length }} </b-tag>
         </span>
         <span>
           <b-button class="pad">Done Today</b-button>

@@ -5,6 +5,7 @@ import store from './store'
 import Buefy from 'buefy'
 import 'buefy/dist/buefy.css'
 import Vuelidate from 'vuelidate'
+import firebase from 'firebase'
 
 Vue.use(Buefy)
 Vue.use(Vuelidate)
@@ -25,6 +26,8 @@ firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
 Vue.config.productionTip = false
+
+import "@/assets/global.scss"
 
 new Vue({
   router,

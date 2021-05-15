@@ -9,4 +9,5 @@ This repository will be my main canvas for said challenge, however I might contr
   
 Project difficulties:  
 e - easy (Projects that should be easy to me / I have done something like this before)  
-i - intermediate (Projects that are a bit trickier but still in my comfort zone and shouldn't be too hard to do)
+i - intermediate (Projects that are a bit trickier but still in my comfort zone and shouldn't be too hard to do)  
+a - advanced (Projects that are out of my comfort zone to extend my skills in certain areas)

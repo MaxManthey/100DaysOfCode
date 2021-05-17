@@ -4,6 +4,7 @@
 
 let util = require("util");
 let axios = require("axios");
+let cheerio = require("cheerio");
 let args = require('minimist')(process.argv.slice(2), {
 	boolean: [ "help" ],
 	string: [ "name" ],
@@ -13,23 +14,25 @@ let args = require('minimist')(process.argv.slice(2), {
 if(args.help) {
 	printHelp();
 } else if(args.name) {
-	printPokemonInfo(args.name)
+	getPokemonData(args.name)
 } else {
 	error("Incorrect usage.", true);
 }
 
-function printPokemonInfo(name) {
+function printPokemonInfo(data) {
 	const level = args.level
 
 	if(level) {
-		console.log("\t", name, "   Level:", args.level)
+		console.log("\t", data.name, "   Level:", args.level)
 	} else {
-		console.log(name, " ")
+		console.log(data.name, " ")
 	}
 	
-	let data = getPokemonData(name.toLowerCase())	
+	// let data = await getPokemonData(name.toLowerCase())	
+	// console.log("dexo: ", data.pokedexNo)
 
 	console.log()
+	console.log("Pokedex No.:\t", data.pokedexNo)
 	console.log("Type:\t\t", "type")
 	console.log("Strong against:\t", "strength")
 	console.log("Weak against:\t", "weakness")
@@ -43,7 +46,18 @@ function getPokemonData(name) {
 	axios(url)
 		.then(response => {
 			const html = response.data
-			console.log(html)
+			const $ = cheerio.load(html)
+    		const num = $('td > strong', html).text()
+			// const type = $('.type-icon', html).text()
+			const type = $('.type-icon', html)
+			
+			printPokemonInfo({
+				name: name,
+				pokedexNo: num,
+				test: "moin"
+			})
+			// console.log(num)
+			// console.log(type[0].text())
 		})
 		.catch(console.error)
 }
@@ -57,6 +71,8 @@ function error(msg, includeHelp = false) {
 }
 
 function printHelp() {
+	console.log("resource 1: https://pusher.com/tutorials/web-scraper-node")
+	console.log("resource 2: https://www.freecodecamp.org/news/the-ultimate-guide-to-web-scraping-with-node-js-daa2027dcd3/")
 	console.log("Pokemon finder usage usage: ");
 	console.log("  index.js --name={NAME OF POKEMON}");
 	console.log("");

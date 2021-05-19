@@ -10,5 +10,4 @@ Cheerio and Puppeteer is being used to scrape the data from [Pokemon DB](https:/
 index.js --name={NAME OF POKEMON}  
 --help print help  
 --name={NAME OF POKEMON} Details of Pokemon  
---level={LEVEL OF POKEMON} Moves Pokemon can learn up to given level
 ```

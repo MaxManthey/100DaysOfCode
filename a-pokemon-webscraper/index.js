@@ -8,7 +8,7 @@ let cheerio = require("cheerio");
 let args = require('minimist')(process.argv.slice(2), {
 	boolean: [ "help" ],
 	string: [ "name" ],
-	//number: [ "level" ]
+	number: [ "level" ]
 });
 
 if(args.help) {
@@ -20,17 +20,14 @@ if(args.help) {
 }
 
 function printPokemonInfo(data) {
-	//const level = args.level
+	const level = args.level
 
-	//if(level) {
-	//	console.log("\t", data.name, "   Level:", args.level)
-	//} else {
+	if(level) {
+		console.log("\t", data.name, "   Level:", args.level)
+	} else {
 		console.log(data.name, " ")
-	//}
+	}
 	
-	// let data = await getPokemonData(name.toLowerCase())	
-	// console.log("dexo: ", data.pokedexNo)
-
 	console.log()
 	console.log("National No.:\t", data.pokedexNo)
 	console.log("Type:\t\t", data.type)
@@ -53,6 +50,16 @@ function getPokemonData(name) {
 			getType.each(function() {
 				type.push($(this).text())
 			})
+			//TODO get effects stuff
+			let getEffects = $('.type-table-pokedex', html)
+			getEffects.each(function() {
+				whatType($(this))
+			})
+			//TODO get level stuff
+			const getLevelMoves = $('.resp-scroll .data-table', html) //find better way to get table
+			console.log("level", getLevelMoves.length)
+
+			console.log(getEffects.length)
 
 			printPokemonInfo({
 				name: name,
@@ -62,6 +69,11 @@ function getPokemonData(name) {
 			})
 		})
 		.catch(console.error)
+}
+
+function whatType(table) {
+	// return types weakn/str if exists
+	return;
 }
 
 function error(msg, includeHelp = false) {

@@ -33,7 +33,7 @@ function printPokemonInfo(data) {
 
 	console.log()
 	console.log("National No.:\t", data.pokedexNo)
-	console.log("Type:\t\t", "type")
+	console.log("Type:\t\t", data.type)
 	console.log("Strong against:\t", "strength")
 	console.log("Weak against:\t", "weakness")
 	
@@ -48,19 +48,17 @@ function getPokemonData(name) {
 			const html = response.data
 			const $ = cheerio.load(html)
     		const num = $('td > strong', html).text()
-			// const type = $('.type-icon', html).text()
-			const typeHtml = $('.vitals-table > tr > td > .type-icon', html)
-			
-			// typeHtml.each(function() {		
-			// })
+			const getType = $('.vitals-table > tbody > tr > td > .type-icon', html)
+			let type = []
+			getType.each(function() {
+				type.push($(this).text())
+			})
 
-			// maybe use puppeteer instead for type?
-
-			// console.log("nummmo", num.text())
-			console.log("type", typeHtml)
 			printPokemonInfo({
 				name: name,
-				pokedexNo: num.substring(0,3)
+				pokedexNo: num,
+				type: type.join(" "),
+				test: "moin"
 			})
 		})
 		.catch(console.error)

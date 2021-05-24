@@ -33,7 +33,7 @@ function printPokemonInfo(data) {
 
 	console.log()
 	console.log("Pokedex No.:\t", data.pokedexNo)
-	console.log("Type:\t\t", "type")
+	console.log("Type:\t\t", data.type)
 	console.log("Strong against:\t", "strength")
 	console.log("Weak against:\t", "weakness")
 	
@@ -48,12 +48,16 @@ function getPokemonData(name) {
 			const html = response.data
 			const $ = cheerio.load(html)
     		const num = $('td > strong', html).text()
-			// const type = $('.type-icon', html).text()
-			const type = $('.type-icon', html)
-			
+			const getType = $('.vitals-table > tbody > tr > td > .type-icon', html)
+			let type = []
+			getType.each(function() {
+				type.push($(this).text())
+			})
+
 			printPokemonInfo({
 				name: name,
 				pokedexNo: num,
+				type: type.join(" "),
 				test: "moin"
 			})
 			// console.log(num)

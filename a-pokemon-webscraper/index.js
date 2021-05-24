@@ -8,7 +8,7 @@ let cheerio = require("cheerio");
 let args = require('minimist')(process.argv.slice(2), {
 	boolean: [ "help" ],
 	string: [ "name" ],
-	number: [ "level" ]
+	//number: [ "level" ]
 });
 
 if(args.help) {
@@ -20,19 +20,19 @@ if(args.help) {
 }
 
 function printPokemonInfo(data) {
-	const level = args.level
+	//const level = args.level
 
-	if(level) {
-		console.log("\t", data.name, "   Level:", args.level)
-	} else {
+	//if(level) {
+	//	console.log("\t", data.name, "   Level:", args.level)
+	//} else {
 		console.log(data.name, " ")
-	}
+	//}
 	
 	// let data = await getPokemonData(name.toLowerCase())	
 	// console.log("dexo: ", data.pokedexNo)
 
 	console.log()
-	console.log("Pokedex No.:\t", data.pokedexNo)
+	console.log("National No.:\t", data.pokedexNo)
 	console.log("Type:\t\t", data.type)
 	console.log("Strong against:\t", "strength")
 	console.log("Weak against:\t", "weakness")
@@ -60,8 +60,6 @@ function getPokemonData(name) {
 				type: type.join(" "),
 				test: "moin"
 			})
-			// console.log(num)
-			// console.log(type[0].text())
 		})
 		.catch(console.error)
 }
@@ -82,7 +80,7 @@ function printHelp() {
 	console.log("");
 	console.log("--help \t\t\t\t print this help");
 	console.log("--name={NAME OF POKEMON} \t Details on Pokemon");
-	console.log("--level={LEVEL OF POKEMON} \t Moves Pokemon can learn up to given level");
+	//console.log("--level={LEVEL OF POKEMON} \t Moves Pokemon can learn up to given level");
 	console.log("");
 }
 

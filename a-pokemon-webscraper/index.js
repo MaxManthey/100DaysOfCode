@@ -33,8 +33,15 @@ function printPokemonInfo(data) {
 	console.log("Type:\t\t", data.type)
 	console.log("Strong against:\t", "strength")
 	console.log("Weak against:\t", "weakness")
-	
-	//print level moves 
+	console.log("")
+	console.log("-----------------------------------------")
+	console.log("")
+	console.log("Level up moves:")
+	let testLevel = [
+		{"level": 1, "move": "Growl", "type": "Normal", "power": "-"},
+		{"level": 1, "move": "Tackle", "type": "Normal", "power": 40}  
+	]
+	console.table(testLevel)
 }
 
 function getPokemonData(name) {
@@ -92,7 +99,7 @@ function printHelp() {
 	console.log("");
 	console.log("--help \t\t\t\t print this help");
 	console.log("--name={NAME OF POKEMON} \t Details on Pokemon");
-	//console.log("--level={LEVEL OF POKEMON} \t Moves Pokemon can learn up to given level");
+	// console.log("--level={LEVEL OF POKEMON} \t Moves Pokemon can learn up to given level");
 	console.log("");
 }
 

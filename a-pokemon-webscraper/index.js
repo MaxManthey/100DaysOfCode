@@ -63,8 +63,10 @@ function getPokemonData(name) {
 				whatType($(this))
 			})
 			//TODO get level stuff
-			const getLevelMoves = $('.resp-scroll .data-table', html) //find better way to get table
-			console.log("level", getLevelMoves.length)
+			const getLevelMoves = $('.data-table > tbody', html) //.each(function() {
+			// 	console.log($(this))
+			// }) //find better way to get table
+			console.log("level", getLevelMoves[0].text())
 
 			console.log(getEffects.length)
 

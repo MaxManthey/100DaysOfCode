@@ -31,17 +31,17 @@ function printPokemonInfo(data) {
 	console.log()
 	console.log("National No.:\t", data.pokedexNo)
 	console.log("Type:\t\t", data.type)
-	console.log("Strong against:\t", "strength")
-	console.log("Weak against:\t", "weakness")
-	console.log("")
-	console.log("-----------------------------------------")
-	console.log("")
-	console.log("Level up moves:")
-	let testLevel = [
-		{"level": 1, "move": "Growl", "type": "Normal", "power": "-"},
-		{"level": 1, "move": "Tackle", "type": "Normal", "power": 40}  
-	]
-	console.table(testLevel)
+	// console.log("Strong against:\t", "strength")
+	// console.log("Weak against:\t", "weakness")
+	// console.log("")
+	// console.log("-----------------------------------------")
+	// console.log("")
+	// console.log("Level up moves:")
+	// let testLevel = [
+	// 	{"level": 1, "move": "Growl", "type": "Normal", "power": "-"},
+	// 	{"level": 1, "move": "Tackle", "type": "Normal", "power": 40}  
+	// ]
+	// console.table(testLevel)
 }
 
 function getPokemonData(name) {
@@ -57,24 +57,27 @@ function getPokemonData(name) {
 			getType.each(function() {
 				type.push($(this).text())
 			})
+
 			//TODO get effects stuff
-			let getEffects = $('.type-table-pokedex', html)
-			getEffects.each(function() {
-				whatType($(this))
-			})
+			// let getEffects = $('.type-table-pokedex', html)
+			// getEffects.each(function() {
+			// 	whatType($(this))
+			// })
+			
 			//TODO get level stuff
-			const getLevelMoves = $('.data-table > tbody', html) //.each(function() {
+			// const getLevelMoves = $('.data-table > tbody', html) //.each(function() {
 			// 	console.log($(this))
 			// }) //find better way to get table
-			console.log("level", getLevelMoves[0].text())
+			
+			// console.log("level", getLevelMoves[0].text())
 
-			console.log(getEffects.length)
+			// console.log(getEffects.length)
 
 			printPokemonInfo({
 				name: name,
 				pokedexNo: num,
 				type: type.join(" "),
-				test: "moin"
+				// test: "moin"
 			})
 		})
 		.catch(console.error)

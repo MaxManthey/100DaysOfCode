@@ -35,15 +35,20 @@ export default {
     ...mapState(["weatherData"]),
   },
   methods: {
+    roundData(num) {
+      console.log(Math.round(parseFloat(num)*10)/10)
+      // return num
+      return Math.round(parseFloat(num)*10)/10
+    },
     getWeather() {
       this.citySet = true;
       this.displayCityName = this.cityName;
       const data = this.$store.state.weatherData;
-      this.temp = this.kelvinToCelsius(data.main.temp);
-      this.feelsLike = this.kelvinToCelsius(data.main.feels_like);
-      this.maxTemp = this.kelvinToCelsius(data.main.temp_max);
-      this.minTemp = this.kelvinToCelsius(data.main.temp_min);
-      this.windSpeed = data.wind.speed;
+      this.temp = this.roundData(this.kelvinToCelsius(data.main.temp));
+      this.feelsLike = this.roundData(this.kelvinToCelsius(data.main.feels_like));
+      this.maxTemp = this.roundData(this.kelvinToCelsius(data.main.temp_max));
+      this.minTemp = this.roundData(this.kelvinToCelsius(data.main.temp_min));
+      this.windSpeed = this.roundData(data.wind.speed);
     },
     openWeatherAPICall() {
       if (this.cityName.length) {

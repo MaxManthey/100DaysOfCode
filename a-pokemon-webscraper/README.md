@@ -4,7 +4,7 @@ Node app to get Info on any pokemon using webscraping.
 The app will display the type of a pokemon to know their weaknesses/strengths.  
 Cheerio and Puppeteer is being used to scrape the data from [Pokemon DB](https://pokemondb.net/)  
 
-![Pokemon Demo](src/assets/consoleScreenshot.png?raw=true)  
+![Pokemon Demo](consoleScreenshot.png?raw=true)  
   
 ## Usage
 
